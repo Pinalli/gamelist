@@ -25,6 +25,9 @@ public class Game {
     @Column(name = "title", nullable = false)
     private String title;
 
+    @Column(name = "score")
+    private Double score;
+
     @Column(name = "game_year")
     private Integer gameYear;
 
@@ -37,10 +40,10 @@ public class Game {
     @Column(name = "img_url")
     private String imgUrl;
 
-    @Column(name = "short_description")
+    @Column(columnDefinition = "TEXT",name = "short_description")
     private String shortDescription;
 
-    @Column(name = "long_description")
+    @Column(columnDefinition = "TEXT",name = "long_description")
     private String longDescription;
 
 
