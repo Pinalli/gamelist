@@ -19,16 +19,30 @@ import java.util.Objects;
 public class Game {
 
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "title", nullable = false)
     private String title;
+
     @Column(name = "game_year")
-    private Integer year;
+    private Integer gameYear;
+
+    @Column(name = "genre")
     private String genre;
-    private String platform;
+
+    @Column(name = "platforms")
+    private String platforms;
+
+    @Column(name = "img_url")
     private String imgUrl;
+
+    @Column(name = "short_description")
     private String shortDescription;
+
+    @Column(name = "long_description")
     private String longDescription;
+
 
     @Override
     public boolean equals(Object o) {
