@@ -1,9 +1,5 @@
-
-
-
-
-
-
+# Project Structure
+ ```
 listgames/
 ├── backend/
 │   ├── src/
@@ -21,5 +17,6 @@ listgames/
 ├── docker-compose.yml
 ├── .gitignore
 └── README.md
+```
 
 
