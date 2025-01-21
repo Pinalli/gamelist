@@ -7,7 +7,7 @@ services:
       - "8080:8080"
     environment:
       SPRING_PROFILES_ACTIVE: prod
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/listgames_db
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/gamelist_db
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: admin
     depends_on:
@@ -26,7 +26,7 @@ services:
     image: postgres:15-alpine
     container_name: postgres-db
     environment:
-      POSTGRES_DB: listgames_db
+      POSTGRES_DB: gamelist_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
     ports:

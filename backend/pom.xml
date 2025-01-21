@@ -11,7 +11,7 @@
 	<groupId>com.pinalli</groupId>
 	<artifactId>listgames</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>listgames</name>
+	<name>gamelist</name>
 	<description>Java Spring project</description>
 	<url/>
 	<licenses>
