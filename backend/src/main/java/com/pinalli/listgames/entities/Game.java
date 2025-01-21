@@ -46,7 +46,6 @@ public class Game {
     @Column(columnDefinition = "TEXT",name = "long_description")
     private String longDescription;
 
-
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;

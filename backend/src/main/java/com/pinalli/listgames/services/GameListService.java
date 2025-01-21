@@ -1,43 +1,40 @@
 package com.pinalli.listgames.services;
 
 import com.pinalli.listgames.dto.GameDTO;
+import com.pinalli.listgames.dto.GameListDTO;
 import com.pinalli.listgames.dto.GameMinDto;
 import com.pinalli.listgames.entities.Game;
+import com.pinalli.listgames.entities.GameList;
+import com.pinalli.listgames.repository.GameListRepository;
 import com.pinalli.listgames.repository.GameRepository;
-
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-public class GameService {
+public class GameListService {
 
-    private final GameRepository gameRepository;
+    private final GameListRepository gameListRepository;
 
-    public GameService(GameRepository gameRepository) {
-        this.gameRepository = gameRepository;
+    public GameListService( GameListRepository gameListRepository) {
+        this.gameListRepository = gameListRepository;
+
     }
 
     @Transactional(readOnly = true)
-    public List<GameMinDto> findAllGames() {
+    public List<GameListDTO> findAllGames() {
         // find contains a list of Game entities
-        List<Game> dto = gameRepository.findAll();
+        List<GameList> dto = gameListRepository.findAll();
         /**
          The line in question will transform each Game into GameMinDto
          Equivalent to doing it manually Functional Approach (Stream):
          other case use Imperative Approach (For) or
          spring batch for large data
          */
-        return dto.stream().map(GameMinDto::new).toList();
+        return dto.stream().map(GameListDTO::new).toList();
 
     }
 
-    @Transactional(readOnly = true)
-    public GameDTO findById(Long id) {
-        return gameRepository.findById(id)
-                .map(GameDTO::new)
-                .orElseThrow(() -> new EntityNotFoundException("Game not found with id: " + id));
-    }
+
 }
