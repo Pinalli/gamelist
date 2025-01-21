@@ -1,3 +1,10 @@
+
+
+## Modelo de domínio ListGames
+
+![Modelo de domínio DSList](https://raw.githubusercontent.com/devsuperior/java-spring-dslist/main/resources/dslist-model.png)
+
+
 # Project Structure
  ```
 listgames/
