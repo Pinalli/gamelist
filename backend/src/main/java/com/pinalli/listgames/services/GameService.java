@@ -1,9 +1,12 @@
 package com.pinalli.listgames.services;
 
+import com.pinalli.listgames.dto.GameDTO;
 import com.pinalli.listgames.dto.GameMinDto;
 import com.pinalli.listgames.entities.Game;
 import com.pinalli.listgames.repository.GameRepository;
+
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,6 +19,7 @@ public class GameService {
         this.gameRepository = gameRepository;
     }
 
+    @Transactional(readOnly = true)
     public List<GameMinDto> findAllGames() {
         // find contains a list of Game entities
         List<Game> dto = gameRepository.findAll();
@@ -27,5 +31,12 @@ public class GameService {
          */
         return dto.stream().map(GameMinDto::new).toList();
 
+    }
+
+    @Transactional(readOnly = true)
+    public GameDTO findById(Long gameId) {
+        // find contains a Game entity
+        Game dto = gameRepository.findById(gameId).get();
+        return new GameDTO(dto);
     }
 }
