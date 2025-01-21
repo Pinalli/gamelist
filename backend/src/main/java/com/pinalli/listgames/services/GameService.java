@@ -3,6 +3,7 @@ package com.pinalli.listgames.services;
 import com.pinalli.listgames.dto.GameDTO;
 import com.pinalli.listgames.dto.GameMinDto;
 import com.pinalli.listgames.entities.Game;
+import com.pinalli.listgames.projections.GameMinProjection;
 import com.pinalli.listgames.repository.GameRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -40,4 +41,12 @@ public class GameService {
                 .map(GameDTO::new)
                 .orElseThrow(() -> new EntityNotFoundException("Game not found with id: " + id));
     }
+
+    @Transactional(readOnly = true)
+    public List<GameMinDto> findByList(Long listId) {
+        List<GameMinProjection> dto = gameRepository.searchByList(listId);
+        return dto.stream().map(GameMinDto::new).toList();
+
+    }
+
 }
