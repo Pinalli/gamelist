@@ -1,6 +1,7 @@
 
 
-## Modelo de domínio ListGames
+## Domain Model ListGames
+### class diagram
 
 ![Modelo de domínio DSList](https://raw.githubusercontent.com/devsuperior/java-spring-dslist/main/resources/dslist-model.png)
 
