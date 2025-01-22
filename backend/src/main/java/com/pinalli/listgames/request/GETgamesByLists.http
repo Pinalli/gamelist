@@ -1,2 +1,2 @@
 
-GET http://localhost:8080/lists/1/games
+GET http://localhost:8080/lists/2/games
