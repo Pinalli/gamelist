@@ -22,9 +22,9 @@ public class GameList {
     private String name;
 
     @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        GameList gameList = (GameList) o;
+    public boolean equals(Object obj) {
+        if (obj == null || getClass() != obj.getClass()) return false;
+        GameList gameList = (GameList) obj;
         return Objects.equals(id, gameList.id);
     }
 
