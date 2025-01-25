@@ -2,12 +2,10 @@ package com.pinalli.listgames.controller;
 
 import com.pinalli.listgames.dto.GameListDTO;
 import com.pinalli.listgames.dto.GameMinDto;
+import com.pinalli.listgames.dto.ReplacementDTO;
 import com.pinalli.listgames.services.GameListService;
 import com.pinalli.listgames.services.GameService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,5 +33,11 @@ public class GameListController {
         List<GameMinDto> result;
         result = gameService.findByList(listId);
         return result;
+    }
+
+    @PostMapping(value = "/{listId}/replacement")
+    public void  moveGamePositionInList(@PathVariable Long listId, @RequestBody  ReplacementDTO body) {
+      gameListService.moveGamePositionInList(listId,body.getSourceIndex(), body.getDestinationIndex() );
+
     }
 }

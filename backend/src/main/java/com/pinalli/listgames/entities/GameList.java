@@ -21,6 +21,9 @@ public class GameList {
     private Long id;
     private String name;
 
+    public GameList(Long listId, Long gameId, int i) {
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null || getClass() != obj.getClass()) return false;
